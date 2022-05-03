@@ -1,0 +1,16 @@
+{
+    "name": "andrewlim/rememberme",
+    "description": "Easy to use RememberMeCookie class with no dependencies except PDO",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Lim",
+            "email": "danteshamest@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"AndrewLim\\RememberMe\\": "src/"}
+    },
+}
