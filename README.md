@@ -7,6 +7,31 @@ Features:
 - Works with PHP 5.4 and above
 - The hash of the cookie value is stored in the database
 
+## Setup
+
+By default, the class looks for and stores cookie data in a table named "rememberme".
+It needs these 4 columns to be present: cookiehash, userid, createdat, expiredat
+
+```sql
+-- MySQL / SQLite
+CREATE TABLE rememberme (
+    cookiehash VARCHAR(128) PRIMARY KEY,
+    userid     VARCHAR(128) NOT NULL,
+    createdat  DATETIME     NOT NULL,
+    expiresat  DATETIME     NULL
+);
+```
+
+```sql
+-- postgresql
+CREATE TABLE rememberme (
+    cookiehash VARCHAR(128) PRIMARY KEY,
+    userid     VARCHAR(128) NOT NULL,
+    createdat  TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+    expiresat  TIMESTAMP(0) WITHOUT TIME ZONE NULL
+);
+```
+
 ## Usage
 
 New Login - call create()
