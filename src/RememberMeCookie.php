@@ -23,7 +23,8 @@ CREATE TABLE rememberme (
     expiresat  TIMESTAMP(0) WITHOUT TIME ZONE NULL
 );
 
-Author: Andrew Lim (https://github.com/andrew-lim)
+Author: Andrew Lim
+https://github.com/andrew-lim/rememberme
 */
 
 namespace AndrewLim\RememberMe;
@@ -101,7 +102,7 @@ class RememberMeCookie
      * If cookievalue is null, randomString() will be used to create one
      * @param string $userid      User ID this cookie is for
      * @param string $cookievalue Cookie value. If null, a random string will be used
-     * @return \stdClass A stdClass object with 2 properties: cookievalue, cookiehash
+     * @return \stdClass A stdClass object with 4 properties: cookievalue, cookiehash, createdat, expiresat
      */
     public function create($userid, $cookievalue = null)
     {
@@ -127,6 +128,8 @@ class RememberMeCookie
         $r = new \stdClass();
         $r->cookievalue = $cookievalue;
         $r->cookiehash  = $cookiehash;
+        $r->createdat   = $createdat;
+        $r->expiresat   = $expiresat;
         return $r;
     }
 
