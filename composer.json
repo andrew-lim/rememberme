@@ -2,15 +2,21 @@
     "name": "andrewlim/rememberme",
     "description": "Easy to use RememberMeCookie class with no dependencies except PDO",
     "type": "library",
+    "keywords": ["cookie","remember"],
+    "homepage": "https://github.com/andrew-lim/rememberme",
     "license": "MIT",
     "authors": [
         {
             "name": "Andrew Lim",
-            "email": "danteshamest@gmail.com"
+            "email": "danteshamest@gmail.com",
+            "role" : "Developer",
+            "homepage": "https://github.com/andrew-lim/"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=5.4.0"
+    },
     "autoload": {
         "psr-4": {"AndrewLim\\RememberMe\\": "src/"}
-    },
+    }
 }
