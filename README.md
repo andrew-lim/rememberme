@@ -9,6 +9,10 @@ Features:
 
 ## Setup
 
+You can include the RememberMeCookie.php file directly or install via composer:
+
+    composer require andrewlim/rememberme
+
 By default, the class looks for and stores cookie data in a table named "rememberme".
 It needs these 4 columns to be present: cookiehash, userid, createdat, expiresat
 
@@ -72,4 +76,24 @@ Call logout() to remove the remembermecookie from browser and delete the databas
 ```php
 $rememberMeCookie->logout();
 header('Location: login.php');
+```
+
+## Configuration
+
+You can configure the cookie creation and storage before calling create()
+
+```php
+$rememberMeCookie = new \AndrewLim\RememberMe\RememberMeCookie($pdo);
+
+// Table name
+$rememberMeCookie->table = 'customtable';
+
+// Cookie name
+$rememberMeCookie->cookiename = 'dashboard_cookie';
+
+// hashing algorithm
+$rememberMeCookie->algo = 'sha512';
+
+// 2 years expiry
+$rememberMeCookie->expires = time() + (2 * 365 * 24 * 60 * 60);
 ```
